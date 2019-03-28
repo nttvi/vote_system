@@ -8,11 +8,10 @@
 		}
 
 		.dark .slider-caption h2 {
-		    color: #162cd6;
+		    color: #d5f100;
 		    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 		}
 		.slider-caption p{
-		    color: #162cd6;
 			text-transform: none;
 		    text-shadow: 1px 1px 1px rgb(13, 40, 115);
 
@@ -34,7 +33,7 @@
 
 		<section id="slider" class="slider-element force-full-screen full-screen">
 
-			<div class="force-full-screen full-screen dark" style="background-image: url('{{ asset('image/slider_home.jpg')}}');background-position: 100%;">
+			<div class="force-full-screen full-screen dark" style="background-image: url('{{ asset('image/slider_home.jpg')}}');background-position: 100%; background-repeat: no-repeat; background-size: cover;">
 
 				<div class="container clearfix">
 					<div class="slider-caption slider-caption-center">
