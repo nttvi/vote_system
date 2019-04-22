@@ -51,6 +51,8 @@ class AdminController extends Controller{
     public function postSign(Request $request)
     {
         $data = new User();
+        $data->name = $request->input('name');
+        $data->phone = $request->input('phone');
         $data->email = $request->input('email');
         $data->password = bcrypt($request->input('password'));
         $data->save();

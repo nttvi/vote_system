@@ -5,7 +5,7 @@ return [
         'route' => '',
         'sort' => 23,
         'active'=> 'role',
-        'icon' => ' icon-people',
+        'icon' => 'fas fa-user-tag',
         'middleware' => [],
         'group' => [
                 'list-role' => [

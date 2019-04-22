@@ -40,6 +40,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js') }} "></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js') }} "></script>
 <![endif]-->
+    <style>
+        .bg-red{
+            background-color: #e46a76;
+        }
+    </style>
     @stack('css')
 </head>
 
@@ -85,16 +90,13 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row page-titles">
-                    <div class="col-md-5 align-self-center">
-                        <h4 class="text-themecolor">@yield('breadcrumb')</h4>
-                    </div>
-                    <div class="col-md-7 align-self-center text-right">
-                        <div class="d-flex justify-content-end align-items-center">
+                    <div class="col-md-12 align-self-center">
+                        <div class="d-flex justify-content-end align-items-center float-left">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                <li class="breadcrumb-item active">@yield('breadcrumb')</li>
+                                <li class="breadcrumb-item">@yield('breadcrumb')</li>
+                                <li class="breadcrumb-item active">@yield('page')</li>
                             </ol>
-                            @yield('link')
                         </div>
                     </div>
                 </div>
@@ -183,7 +185,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="footer">
-            © 2018 Eliteadmin by Hoàng Phúc
+            © 2018 Eliteadmin by Student of CTU
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

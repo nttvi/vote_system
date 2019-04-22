@@ -48,6 +48,16 @@
                         <h3 class="box-title m-b-20">Sign Up</h3>
                         <div class="form-group ">
                             <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" name="name" placeholder="Tên">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                <input class="form-control" type="text" required="" name="phone" placeholder="Số điện thoại">
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
                                 <input class="form-control" type="text" required="" name="email" placeholder="Email">
                             </div>
                         </div>

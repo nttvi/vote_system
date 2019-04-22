@@ -39,15 +39,19 @@
 		}
 
 		.dark .modal-content{
-    		background-color: #230c88;
+    		background-color: #128f9a;
 		}
 
 		.dark .form-control:not(.not-dark), .dark .sm-form-control:not(.not-dark) {
-		    color: #f1f1f1;
-		    background-color: rgba(0,0,0,0.2);
+		    color: white;
+		    background-color: rgba(80, 73, 73, 0.2);
 		    border-color: rgba(0,0,0,0.25);
 		}
-	
+
+
+		.dark .form-control:not(.not-dark)::-webkit-input-placeholder {
+		   color: #ffffffa1;
+		}
 
     	#header.transparent-header:not(.sticky-header) #header-wrap {
     		background: #1035b9a3;

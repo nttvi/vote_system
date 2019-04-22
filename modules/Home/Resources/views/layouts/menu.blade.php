@@ -30,25 +30,25 @@
 					<form action="{{ route('post.home.signup') }}" method="post" class="p-t-20">
 						{{ csrf_field() }}
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">Họ tên:</label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Họ tên:</label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputEmail3" name="name" placeholder="Nhập tên của bạn">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">Email:</label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Email:</label>
 							<div class="col-sm-9">
 								<input type="email" class="form-control" id="inputEmail3" name="email" placeholder="Nhập email của bạn">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">Số điện thoại: </label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Số điện thoại: </label>
 							<div class="col-sm-9">
 								<input type="text" class="form-control" id="inputEmail3" name="phone" placeholder="09xxxxxxxxx">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">Mật khẩu</label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Mật khẩu</label>
 							<div class="col-sm-9">
 								<input type="password" class="form-control" name="password" id="inputEmail3" placeholder="********">
 							</div>
@@ -76,13 +76,13 @@
 					<form action="{{ route('post.home.login') }}" method="post" class="p-t-20">
 						{{ csrf_field() }}
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">Email/Số điện thoại</label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Email/Số điện thoại</label>
 							<div class="col-sm-9">
 								<input type="email" class="form-control" id="inputEmail3" name="account" placeholder="Nhập email của bạn">
 							</div>
 						</div>
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label">Mật khẩu</label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Mật khẩu</label>
 							<div class="col-sm-9">
 								<input type="password" class="form-control" name="password" id="inputEmail3" placeholder="********">
 							</div>

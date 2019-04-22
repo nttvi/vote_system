@@ -173,15 +173,15 @@
 	
 
 	.red{
-		color: red;
+		color: red !important;
 	}
 
 	.green{
-		color: green;
+		color: green !important;
 	}
 	
 	.white{
-		color:white;
+		color:white !important;
 	}
 
 
@@ -190,11 +190,11 @@
 }
 
 .right {
-	text-align: right;
+	text-align: right !important;
 }
 
 .center {
-	text-align: center;
+	text-align: center !important;
 }
 
 .select2-container--default .select2-selection--single{

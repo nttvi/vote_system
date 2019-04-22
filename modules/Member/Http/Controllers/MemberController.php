@@ -1,0 +1,67 @@
+<?php
+namespace HPro\Member\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use HPro\Member\Enities\Member;
+use Validator;
+
+class MemberController extends Controller{
+    /**
+     * Create a new authentication controller instance.
+     *
+     * @return void
+     */
+    public function __construct(Member $model, Request $request)
+    {
+        $this->model    = $model;
+        $this->middleware('auth');
+    }
+    
+
+    public function getList(Request $request){
+        $data = Member::all();
+        return view('Member::member.list',compact('data'));
+    }
+
+
+    public function getCreate(Request $request){
+        return view('Member::member.create');
+    }
+
+    public function postCreate(Request $request){
+
+        $this->validate($request,$this->model->rules,$this->model->messages);
+        $data = $request->all();
+        $insert = new Member($data);
+        $insert['password'] = bcrypt($request->password);
+        $insert->save();
+        $request->session()->flash('status', 'Thêm mới thành công!');
+        return redirect()->route('get.list.member');
+    }
+
+    public function getEdit(Request $request, $id){
+        $data = Member::find($id);
+        return view('Member::member.edit',compact('data'));
+    }
+
+    public function postEdit(Request $request, $id){
+        $this->validate($request,$this->model->rules,$this->model->messages);
+        $data = Member::find($id);
+        $data->update($request->all());
+        $data->password = bcrypt($request->password);
+        $data->update();
+        $request->session()->flash('status', 'Chỉnh sửa thành công!');
+        return redirect()->back();
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $data = Member::find($id);
+        $data->delete();
+        $request->session()->flash('alert', 'Xóa thành công!');
+        return redirect()->back();
+    }
+
+   
+}
