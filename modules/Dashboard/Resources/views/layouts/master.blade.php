@@ -11,6 +11,7 @@
     <!-- Favicon icon -->
     <link rel="SHORTCUT ICON"  type="image/png" sizes="16x16" href="{{ asset('/image/logo.png') }}">
     <title>Admin - Hệ thống quản lý bầu chọn</title>
+    <link href="{{ asset('backend/assets/node_modules/icheck/skins/all.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('backend/assets/node_modules/dropify/dist/css/dropify.min.css') }}">
     <!-- Custom CSS -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700&amp;subset=vietnamese" rel="stylesheet">
@@ -32,6 +33,7 @@
     <!-- page css -->
     <link href="{{ asset('backend/dist/css/pages/float-chart.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/dist/css/pages/file-upload.css') }}" rel="stylesheet">
+    <link href="{{ asset('backend/dist/css/pages/tab-page.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('/css/custom_hp.css') }}" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -251,12 +253,13 @@
     <script src="{{ asset('backend/assets/node_modules/icheck/icheck.init.js') }}"> </script>
 
     <!-- ============================================================== -->
-    <!-- jQuery file upload -->
-    <script src="{{ asset('backend/assets/node_modules/dropify/dist/js/dropify.min.js') }}"></script>
     <!-- Magnific popup JavaScript -->
     <script src="{{ asset('backend/assets/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup.min.js') }}"></script>
     <script src="{{ asset('backend/assets/node_modules/Magnific-Popup-master/dist/jquery.magnific-popup-init.js') }}"></script>
     <!-- Current JS -->
+    
+
+    
     @stack('js')
     
 

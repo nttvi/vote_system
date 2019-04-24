@@ -9,14 +9,11 @@ use HPro\User\Enities\User;
 
 class Vote extends Model
 {
-	use SoftDeletes;
 
 	protected $table = 'votes';
 
 	protected $primaryKey = 'id';
 
-    protected $dates = ['deleted_at'];
-    
     protected $guarded = [];
 
     public $timestamps = true;
