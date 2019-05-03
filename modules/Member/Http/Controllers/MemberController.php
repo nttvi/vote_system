@@ -4,6 +4,8 @@ namespace HPro\Member\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use HPro\Member\Enities\Member;
+use HPro\Election\Enities\Election;
+use HPro\Election\Enities\Voter;
 use Validator;
 
 class MemberController extends Controller{
@@ -18,6 +20,15 @@ class MemberController extends Controller{
         $this->middleware('auth');
     }
     
+    public function getElection(Request $request, $id){
+        $data = Election::where('member_id',$id)->get();
+        return view('Member::member.election',compact('data'));
+    }
+
+    public function getElectionJoin(Request $request, $id){
+        $data = Voter::where('member_id',$id)->get();
+        return view('Member::member.election_join',compact('data'));
+    }
 
     public function getList(Request $request){
         $data = Member::all();

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Admin Sign</title>
     
     <!-- page css -->
     <link href="{{ asset('backend/dist/css/pages/login-register-lock.css') }}" rel="stylesheet">

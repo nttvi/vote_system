@@ -9,14 +9,14 @@ return [
         'middleware' => [],
         'group' => [
                 'list-category' => [
-                        'name'  => trans('Danh sách thể loại bầu cử'),
+                        'name'  => trans('Danh sách thể loại bầu chọn'),
                         'icon'  => null,
                         'route' => route('get.list.election_type')   ,
                         'active'=> 'list-category ',
                         'middleware' => [],
                 ],
                 'create-category' => [
-                        'name'  => trans('Thêm mới thể loại bầu cử'),
+                        'name'  => trans('Thêm mới thể loại bầu chọn'),
                         'icon'  => null,
                         'route' => route('get.create.election_type')   ,
                         'active'=> 'create-category ',

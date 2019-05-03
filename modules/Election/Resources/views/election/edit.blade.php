@@ -3,7 +3,7 @@
 @include('Election::election.breadcrumb')
 
 @section('page')
-        Chỉnh sửa cuộc bầu cử
+        Chỉnh sửa cuộc bầu chọn
 @endsection
 
 @section('content')
@@ -18,10 +18,11 @@
             <div class="card-header bg-red">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4 class="m-b-0 text-white">Thêm cuộc bầu cử</h4>
+                        <h4 class="m-b-0 text-white">Thêm cuộc bầu chọn</h4>
                     </div>
                     <div class="col-md-6">
-                        <a href="{{ route('get.list.vote',$data->id) }}" class="btn btn-warning float-right">Quản lý phiếu bầu</a>
+                        <input type="button" class="btn btn-warning float-right" onclick="history.back();" value="Quay về" />
+                        <a href="{{ route('get.list.vote',$data->id) }}" class="btn btn-info float-right m-r-5">Quản lý bầu chọn</a>
                     </div>
                 </div>
             </div>
@@ -32,7 +33,7 @@
                         <div class="p-t-20 row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Thể loại bầu cử</label>
+                                    <label class="control-label">Thể loại bầu chọn</label>
                                     <select name="election_type_id" class="form-control">
                                         <option value="">--Chọn thể loại--</option>
                                         @foreach($type as $key => $val)
@@ -49,13 +50,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Tên cuộc bầu cử</label>
-                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên cuộc bầu cử" value="{{ $data->title }}">
+                                    <label class="control-label">Tên cuộc bầu chọn</label>
+                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên cuộc bầu chọn" value="{{ $data->title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Số lượng người tham gia bầu cử</label>
+                                    <label class="control-label">Số lượng người tham gia bầu chọn</label>
                                     <input type="number" name="voter_quality" required class="form-control" placeholder="Nhập số lượng" value="{{ $data->voter_quality }}">
                                 </div>
                             </div>
@@ -98,8 +99,8 @@
                             <button type="reset" class="btn btn-inverse">Cancel</button>    
                         </div>
                         <div class="col-md-6">
-                            <a href="{{ route('get.list.object',$data->id) }}" class="btn btn-success float-right">Thêm đối tượng cho cuộc bầu cử</a>
-                            <a href="{{ route('get.create.voter',$data->id) }}" class="btn btn-success float-right m-r-5">Thêm người bầu cử</a>
+                            <a href="{{ route('get.list.object',$data->id) }}" class="btn btn-success float-right">Thêm đối tượng cho cuộc bầu chọn</a>
+                            <a href="{{ route('get.create.voter',$data->id) }}" class="btn btn-success float-right m-r-5">Thêm người bầu chọn</a>
                         </div>
                     </div>
                 </form>

@@ -7,8 +7,13 @@
     		Route::get('edit/{id}','MemberController@getEdit')->name('get.edit.member');
     		Route::post('edit/{id}','MemberController@postEdit')->name('post.edit.member');
     		Route::get('delete/{id}','MemberController@delete')->name('get.delete.member');
+            
+            Route::get('election-list/{id}','MemberController@getElection')->name('get.election.member');
+            Route::get('election-join/{id}','MemberController@getElectionJoin')->name('get.election.join.member');
 
     	});
+        Route::get('search-member','AdminController@searchMemberAdmin')->name('get.search.member.admin');
+
 	});
     	
 

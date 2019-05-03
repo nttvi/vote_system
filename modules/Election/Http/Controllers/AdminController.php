@@ -1,9 +1,9 @@
 <?php
-namespace HPro\Role\Http\Controllers;
+namespace HPro\Election\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use HPro\Role\Enities\Roles;
+use HPro\Election\Enities\Election;
 use Validator;
 
 class AdminController extends Controller{
@@ -12,11 +12,15 @@ class AdminController extends Controller{
      *
      * @return void
      */
-    public function __construct(Roles $model, Request $request)
+    public function __construct(Election $model, Request $request)
     {
         $this->model    = $model;
     }
     
-    
+    public function searchElectionAdmin(Request $request)
+    {
+    	$data = Election::where('title','like','%'.$request->key.'%')->get();
+    	return view('Election::election.list',compact('data'));
+    }
    
 }

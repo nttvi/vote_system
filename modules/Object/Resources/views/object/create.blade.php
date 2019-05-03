@@ -22,6 +22,7 @@
                     </div>
                     <div class="col-md-6">
                         <a href="{{ route('get.list.object',$election->id) }}" class="btn btn-warning float-right"> Về danh sách đối tượng</a>
+                        <a href="{{ route('get.create.vote',$election->id) }}" class="btn btn-info float-right m-r-5">Quản lý phiếu bầu</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +43,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Thêm hình ảnh</label>
-                                    <input type="file" name="image" required class="form-control" value="{{ old('image ') }}">
+                                    <input type="file" name="image" class="form-control" value="{{ old('image ') }}">
                                 </div>
                             </div>
                             <div class="col-md-6">

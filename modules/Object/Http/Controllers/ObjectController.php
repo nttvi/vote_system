@@ -37,9 +37,12 @@ class ObjectController extends Controller{
         $this->validate($request,$this->model->rules,$this->model->messages);
         $data = $request->all();
         $insert = new Objects($data);
-        $image = $request->file('image')->getClientOriginalName();
-        $request->file('image')->move('upload/image/object',$image);
-        $insert['image'] = 'upload/image/object/'.$image;
+
+        if($request->file('image')){
+            $image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move('upload/image/object',$image);
+            $insert['image'] = 'upload/image/object/'.$image;
+        }
         $insert->save();
         $request->session()->flash('status', 'Thêm mới thành công!');
         return redirect()->route('get.list.object',$election_id);

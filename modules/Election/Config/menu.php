@@ -1,7 +1,7 @@
 <?php 
 
 return [
-        'name' => 'Cuộc bầu cử',
+        'name' => 'Cuộc bầu chọn',
         'route' => '',
         'sort' => 23,
         'active'=> 'election',
@@ -9,14 +9,14 @@ return [
         'middleware' => [],
         'group' => [
                 'list-election' => [
-                        'name'  => trans('Danh sách cuộc bầu cử'),
+                        'name'  => trans('Danh sách cuộc bầu chọn'),
                         'icon'  => null,
                         'route' => route('get.list.election')   ,
                         'active'=> 'list-election ',
                         'middleware' => [],
                 ],
                 'create-election' => [
-                        'name'  => trans('Thêm mới cuộc bầu cử'),
+                        'name'  => trans('Thêm mới cuộc bầu chọn'),
                         'icon'  => null,
                         'route' => route('get.create.election')   ,
                         'active'=> 'create-election ',

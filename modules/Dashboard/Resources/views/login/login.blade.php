@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Admin Eventnary | Hệ thống quản lý tổ chức sự kiện</title>
+    <title>Admin Login</title>
     
     <!-- page css -->
     <link href="{{ asset('backend/dist/css/pages/login-register-lock.css') }}" rel="stylesheet">

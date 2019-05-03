@@ -3,7 +3,7 @@
 @include('Election::election.breadcrumb')
 
 @section('page')
-        Thêm mới thể loại bầu cử
+        Thêm mới thể loại bầu chọn
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
 <!-- Row -->
         <div class="card">
             <div class="card-header bg-red">
-                <h4 class="m-b-0 text-white">Thêm thể loại bầu cử</h4>
+                <h4 class="m-b-0 text-white">Thêm thể loại bầu chọn</h4>
             </div>
             <div class="card-body">
                 <form class="form-material" method="post" action="">
@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Tên thể loại</label>
-                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên cuộc bầu cử" value="{{ old('title') }}">
+                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên cuộc bầu chọn" value="{{ old('title') }}">
                                 </div>
                             </div>
                             <div class="col-md-6">

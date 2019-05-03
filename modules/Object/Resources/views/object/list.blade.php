@@ -17,6 +17,7 @@
             </div>
             <div class="col-md-6">
                 <a href="{{ route('get.create.object',$election->id) }}" class="btn btn-warning float-right"><i class="icon-plus"></i> Thêm mới</a>
+                <a href="{{ route('get.create.vote',$election->id) }}" class="btn btn-info float-right m-r-5">Quản lý phiếu bầu</a>
             </div>
         </div>
     </div>

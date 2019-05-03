@@ -8,8 +8,23 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header bg-red">
-            <h4 class="m-b-0 text-white">Danh sách thành viên</h4>
+        <div class="card-header bg-red row">
+            <div class="col-md-4">
+                <h4 class="m-b-0 text-white">Danh sách thành viên</h4>
+            </div>
+            <div class="col-md-4">
+                <form action="{{ route('get.search.member.admin') }}" method="get">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="search" name="key" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
         </div>
         <div class="card-body">
             <div class="table-responsive">

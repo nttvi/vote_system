@@ -21,7 +21,8 @@
                         <h4 class="m-b-0 text-white">Chỉnh sửa tượng cuộc bầu cử</h4>
                     </div>
                     <div class="col-md-6">
-                        <a href="{{ route('get.list.object',$data->election_id) }}" class="btn btn-warning float-right"> Về danh sách đối tượng</a>
+                        <a href="{{ route('get.list.object',$data->election_id) }}" class="btn btn-warning float-right"><i class="fas fa-undo-alt"></i> Về danh sách đối tượng</a>
+                        <a href="{{ route('get.create.vote',$data->election_id) }}" class="btn btn-info float-right m-r-5">Quản lý phiếu bầu</a>
                     </div>
                 </div>
             </div>
@@ -33,14 +34,12 @@
                  {{ csrf_field() }}
                     <div class="form-body">
                         <div class="p-t-20 ">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label">Tên đối tượng cuộc bầu cử</label>
-                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên đối tượng cuộc bầu cử" value="{{ $data->title }}">
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Tên đối tượng cuộc bầu cử</label>
+                                        <input type="text" name="title" required class="form-control" placeholder="Nhập tên đối tượng cuộc bầu cử" value="{{ $data->title }}">
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label">Mô tả</label>
                                         <textarea name="description" id="" class="form-control" cols="30" rows="10">{{ $data->description }}</textarea>

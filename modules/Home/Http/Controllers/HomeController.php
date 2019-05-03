@@ -35,13 +35,8 @@ class HomeController extends Controller{
                         'email' => $request->input('account'),
                         'password' => $request->input('password'),
                     ];
-
-        $login2 = [
-                        'phone' => $request->input('account'),
-                        'password' => $request->input('password'),
-                    ];
         
-        if (Auth::guard('member')->attempt($login) or Auth::guard('member')->attempt($login2)) {
+        if (Auth::guard('member')->attempt($login)) {
             return redirect()->back();
         }else{
             return redirect()->back();

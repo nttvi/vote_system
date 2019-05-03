@@ -23,6 +23,8 @@
             Route::post('create/{election_id}','VoteController@postCreate')->name('post.create.vote');
             Route::get('delete/{id}','VoteController@delete')->name('get.delete.vote');
         });
+
+        Route::get('search-election','AdminController@searchElectionAdmin')->name('get.search.election.admin');
 	});
     	
 

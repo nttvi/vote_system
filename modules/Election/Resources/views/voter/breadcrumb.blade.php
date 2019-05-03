@@ -1,5 +1,5 @@
 @section('breadcrumb')
-        Người bầu cử
+        Người tham gia bầu chọn
 @endsection
 
 

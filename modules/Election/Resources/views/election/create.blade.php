@@ -3,7 +3,7 @@
 @include('Election::election.breadcrumb')
 
 @section('page')
-        Thêm mới cuộc bầu cử
+        Thêm mới cuộc bầu chọn
 @endsection
 
 @section('content')
@@ -15,8 +15,13 @@
 <!-- ============================================================== -->
 <!-- Row -->
         <div class="card">
-            <div class="card-header bg-red">
-                <h4 class="m-b-0 text-white">Thêm cuộc bầu cử</h4>
+            <div class="card-header bg-red row">
+                <div class="col-md-6">
+                    <h4 class="m-b-0 text-white">Thêm cuộc bầu chọn</h4>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ route('get.list.election') }}" class="btn btn-warning float-right"><i class="fas fa-undo-alt"></i> Về danh sách cuộc bầu chọn</a>
+                </div>
             </div>
             <div class="card-body">
                 <form class="form-material" method="post" action="">
@@ -25,7 +30,7 @@
                         <div class="p-t-20 row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Thể loại bầu cử</label>
+                                    <label class="control-label">Thể loại bầu chọn</label>
                                     <select name="election_type_id" class="form-control">
                                         <option value="">--Chọn thể loại--</option>
                                         @foreach($type as $key => $val)
@@ -37,13 +42,13 @@
                             <div class="col-md-6"></div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Tên cuộc bầu cử</label>
-                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên cuộc bầu cử" value="{{ old('title') }}">
+                                    <label class="control-label">Tên cuộc bầu chọn</label>
+                                    <input type="text" name="title" required class="form-control" placeholder="Nhập tên cuộc bầu chọn" value="{{ old('title') }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label">Số lượng người tham gia bầu cử</label>
+                                    <label class="control-label">Số lượng người tham gia bầu chọn</label>
                                     <input type="number" name="voter_quality" required class="form-control" placeholder="Nhập số lượng" value="{{ old('voter_quality ') }}">
                                 </div>
                             </div>

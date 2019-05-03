@@ -5,7 +5,7 @@ namespace HPro\Election\Enities;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use HPro\User\Enities\User;
+use HPro\Election\Enities\Election;
 
 class Voter extends Model
 {
@@ -43,6 +43,10 @@ class Voter extends Model
     public function getTitle()
     {
         return $this->title;
+    }
+
+    public function election(){
+        return $this->belongsTo(Election::class,'election_id');
     }
 
 }

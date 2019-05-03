@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header bg-red">
-            <h4 class="m-b-0 text-white">Danh sách cuộc bầu cử</h4>
+            <h4 class="m-b-0 text-white">Danh sách cuộc bầu chọn</h4>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -21,7 +21,7 @@
                     <tfoot>
                         <tr>
                             <th>STT</th>
-                            <th>Cuộc bầu cử</th>
+                            <th>Cuộc bầu chọn</th>
                             <th>Mô tả</th>
                             <th width="110px">Thao tác</th>
                         </tr>

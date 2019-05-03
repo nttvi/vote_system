@@ -15,8 +15,13 @@
 <!-- ============================================================== -->
 <!-- Row -->
         <div class="card">
-            <div class="card-header bg-red">
-                <h4 class="m-b-0 text-white">Thêm thành viên</h4>
+            <div class="card-header bg-red row">
+                <div class="col-md-6">
+                    <h4 class="m-b-0 text-white">Thêm thành viên</h4>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ route('get.list.member') }}" class="btn btn-warning float-right"><i class="fas fa-undo-alt"></i> Về danh sách thành viên</a>
+                </div>
             </div>
             <div class="card-body">
                 <form class="form-material" method="post" action="{{ route('post.create.member') }}">

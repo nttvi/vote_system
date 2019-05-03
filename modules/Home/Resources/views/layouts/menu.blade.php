@@ -76,7 +76,7 @@
 					<form action="{{ route('post.home.login') }}" method="post" class="p-t-20">
 						{{ csrf_field() }}
 						<div class="form-group row">
-							<label for="inputEmail3" class="col-sm-3 col-form-label white">Email/Số điện thoại</label>
+							<label for="inputEmail3" class="col-sm-3 col-form-label white">Email</label>
 							<div class="col-sm-9">
 								<input type="email" class="form-control" id="inputEmail3" name="account" placeholder="Nhập email của bạn">
 							</div>

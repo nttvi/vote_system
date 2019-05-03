@@ -1,20 +1,13 @@
 <?php 
 
 return [
-        'name' => 'Vai trò',
+        'name' => '',
         'route' => '',
         'sort' => 23,
-        'active'=> 'role',
-        'icon' => 'fas fa-user-tag',
+        'active'=> '',
+        'icon' => '',
         'middleware' => [],
-        'group' => [
-                'list-role' => [
-                        'name'  => trans('Danh sách vai trò'),
-                        'icon'  => null,
-                        'route' => route('get.create.role')   ,
-                        'active'=> 'list-role ',
-                        'middleware' => [],
-                ],
+        'group' => [],
 
         // \TTSoft\Categories\Entities\Category::DOC_STATUS => [
         //     'name'  => trans('Tình trạng chứng từ'),
@@ -37,6 +30,4 @@ return [
         //     'active'=> 'POSITION',
         //     'middleware' => [],
         // ],
-        
-        ]
 ];

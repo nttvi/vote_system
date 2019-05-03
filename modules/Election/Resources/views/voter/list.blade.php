@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h4 class="m-b-0 text-white">
-                    Danh sách đối tượng bầu cử
+                    Danh sách người tham gia bầu chọn
                 </h4>
             </div>
         </div>
@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên đối tượng</th>
+                        <th>Tên người tham gia bầu chọn</th>
                         <th width="100px">Thao tác</th>
                     </tr>
                 </thead>

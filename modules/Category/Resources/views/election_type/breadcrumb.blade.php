@@ -1,4 +1,4 @@
 @section('breadcrumb')
-        Cuộc bầu cử
+        Cuộc bầu chọn
 @endsection
 

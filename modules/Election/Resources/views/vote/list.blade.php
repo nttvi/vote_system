@@ -3,7 +3,7 @@
 @include('Election::election.breadcrumb')
 
 @section('page')
-        Quản lý phiếu bầu
+        Quản lý bầu chọn
 @endsection
 
 @section('content')
@@ -14,7 +14,8 @@
                     <h4 class="m-b-0 text-white">Danh sách phiếu bầu</h4>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ route('get.create.vote',$election->id) }}" class="btn btn-warning float-right">Quản lý phiếu bầu</a>
+                    <input type="button" class="btn btn-warning float-right" onclick="history.back();" value="Quay về" />
+                    <a href="{{ route('get.create.vote',$election->id) }}" class="btn btn-info float-right m-r-5">Quản lý phiếu bầu</a>
                 </div>
             </div>
         </div>
@@ -27,7 +28,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Đối tượng bầu cử</th>
+                            <th>Đối tượng bầu chọn</th>
                             <th>Số phiếu bầu</th>
                         </tr>
                     </thead>

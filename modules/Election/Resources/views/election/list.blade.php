@@ -3,13 +3,28 @@
 @include('Election::election.breadcrumb')
 
 @section('page')
-        Danh sách cuộc bầu cử
+        Danh sách cuộc bầu chọn
 @endsection
 
 @section('content')
     <div class="card">
-        <div class="card-header bg-red">
-            <h4 class="m-b-0 text-white">Danh sách cuộc bầu cử</h4>
+        <div class="card-header bg-red row">
+            <div class="col-md-4">
+                <h4 class="m-b-0 text-white">Danh sách cuộc bầu chọn</h4>
+            </div>
+            <div class="col-md-4">
+                <form action="{{ route('get.search.election.admin') }}" method="get">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="search" name="key" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-4"></div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -17,7 +32,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Cuộc bầu cử</th>
+                            <th>Cuộc bầu chọn</th>
                             <th>Thời gian bắt đầu</th>
                             <th>Thời gian kết thúc</th>
                             <th>Thao tác</th>
