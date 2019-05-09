@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2019 at 04:38 AM
+-- Generation Time: May 09, 2019 at 04:47 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -37,6 +37,7 @@ CREATE TABLE `elections` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `election_type_id` int(10) UNSIGNED NOT NULL,
+  `member_id` int(10) UNSIGNED DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -48,9 +49,10 @@ CREATE TABLE `elections` (
 -- Dumping data for table `elections`
 --
 
-INSERT INTO `elections` (`id`, `title`, `slug`, `voter_quality`, `content`, `start_date`, `end_date`, `election_type_id`, `deleted_at`, `created_at`, `updated_at`, `start_time`, `end_time`) VALUES
-(1, 'Cuộc bầu cử địa điểm đẹp nhất Cần Thơ', 'cuoc-bau-cu-dia-diem-dep-nhat-can-tho', 4, '<p>Ahihi đồ t&oacute;</p>', '2019-04-15', '2019-04-15', 2, NULL, '2019-04-15 02:13:00', '2019-04-19 09:56:01', '16:00:00', '18:00:00'),
-(2, 'Bầu chọn nhân vật truyện tranh hay nhất', 'bau-chon-nhan-vat-truyen-tranh-hay-nhat', 3, '<p>Nội dung</p>', '2019-04-22', '2019-04-22', 1, NULL, '2019-04-21 18:44:07', '2019-04-21 19:29:22', '07:00:00', '19:00:00');
+INSERT INTO `elections` (`id`, `title`, `slug`, `voter_quality`, `content`, `start_date`, `end_date`, `election_type_id`, `member_id`, `deleted_at`, `created_at`, `updated_at`, `start_time`, `end_time`) VALUES
+(1, 'Cuộc bầu chọn địa điểm đẹp nhất Cần Thơ', 'cuoc-bau-chon-dia-diem-dep-nhat-can-tho', 4, '<p>Ahihi đồ t&oacute;</p>', '2019-04-15', '2019-04-15', 2, 3, NULL, '2019-04-15 02:13:00', '2019-05-02 18:35:55', '16:00:00', '18:00:00'),
+(2, 'Bầu chọn nhân vật truyện tranh hay nhất', 'bau-chon-nhan-vat-truyen-tranh-hay-nhat', 3, '<p>Nội dung</p>', '2019-04-22', '2019-04-22', 1, 1, NULL, '2019-04-21 18:44:07', '2019-04-21 19:29:22', '07:00:00', '19:00:00'),
+(4, 'Bầu chọn xe đẹp nhất', 'bau-chon-xe-dep-nhat', 3, '<p>Ahihi</p>', '2019-11-11', '2019-12-22', 3, 5, NULL, '2019-05-08 00:38:30', '2019-05-08 00:38:30', '11:11:00', '23:11:00');
 
 -- --------------------------------------------------------
 
@@ -90,6 +92,7 @@ CREATE TABLE `members` (
   `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(1000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL
@@ -99,11 +102,12 @@ CREATE TABLE `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`id`, `name`, `phone`, `address`, `email`, `password`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Trần Văn A', '0123456789', 'Cần Thơ', 'tva@pmail.hp', '$2y$10$JeNPTSiVtj6L5mZbFH0CPOEx0Y1yi4IOaZvSRxp2PbqtjLvyL7e1e', '2019-04-14 22:24:37', '2019-04-15 00:38:44', NULL),
-(2, 'Nguyễn Văn B', '0123456781', 'Cần Thơ', 'nvb@pmail.hp', '$2y$10$MkHkFwVCEpeU6sXMdjA/8OIsz1gGWYgVI6Smm4gqbs7WAGUFnefyy', '2019-04-14 22:40:50', '2019-04-15 00:38:53', NULL),
-(3, 'Lục Văn Tiên', '0123456', 'Bến Ninh Kiều', 'lucvantien@pmail.hp', '$2y$10$E0KZ/fD.EQGqopj8SHyr5evOET5hq9Yqg0QWWY4C10UQqEY0svIRq', '2019-04-15 00:38:29', '2019-04-15 00:38:29', NULL),
-(4, 'Lê Văn C', '0123456789', 'ở nhà', 'lvc@pmail.hp', '$2y$10$jSEFwKcOum.Ma/177cn9oOQiMbETUxmIyFV84/VyomCQ0JwpuvHGy', '2019-04-21 18:50:25', '2019-04-21 18:50:25', NULL);
+INSERT INTO `members` (`id`, `name`, `phone`, `address`, `email`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'Trần Văn A', '0123456789', 'Cần Thơ', 'tva@pmail.hp', '$2y$10$XyeY6O5xBbAoTrGXFhuZEeX1H/v7zbJcG2/ZbyXSWwRktevNTK.KC', NULL, '2019-05-02 18:26:14', '2019-05-02 18:26:14', NULL),
+(2, 'Nguyễn Văn B', '012123123123', 'Sóc Trăng', 'nvb@pmail.hp', '$2y$10$s3MTkVmjgi14tRNK2rEZbuC1U2CxEl.h0.yvcXAYVfcsAHzWBK/Fq', NULL, '2019-05-02 18:27:27', '2019-05-02 18:27:27', NULL),
+(3, 'Lục Văn Tiên', '0123456789', 'Bến Ninh Kiều', 'lucvantien@pmail.hp', '$2y$10$L8ytJ5KC3k1C1VVVgIJ6/OaPlB6bXIqV9bAYfa5bDCMcF8WYIv2OC', NULL, '2019-04-15 00:38:29', '2019-05-02 18:30:33', NULL),
+(4, 'Lê Văn C', '0123456789', 'ở nhà', 'lvc@pmail.hp', '$2y$10$jSEFwKcOum.Ma/177cn9oOQiMbETUxmIyFV84/VyomCQ0JwpuvHGy', NULL, '2019-04-21 18:50:25', '2019-04-21 18:50:25', NULL),
+(5, 'Sói Trắng', '0123455223', NULL, 'wolf.alone613@gmail.com', '$2y$10$kW6hF6XnVyUl3exlqmuDD.tViREEujOkDm4mL5Y7tdvU0dLm.76pe', 'BccQuFlp0Lqq1llVEBC2Ec9uTtwJUzvU6mShoucPvfUK9hVXQ9owtyK6h63A', '2019-05-06 19:41:45', '2019-05-08 01:07:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -157,12 +161,19 @@ CREATE TABLE `objects` (
 --
 
 INSERT INTO `objects` (`id`, `title`, `image`, `description`, `election_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 'Cầu Cần Thơ', 'upload/image/object/sinhvienjpg1333951475.jpg', '111', 1, NULL, '2019-04-16 22:41:51', '2019-04-17 18:32:56'),
+(1, 'Cầu Cần Thơ', 'upload/image/object/hammer_sickle.jpg', 'Cau-can-tho', 1, NULL, '2019-04-16 22:41:51', '2019-05-02 19:00:54'),
 (2, 'Đại học Cần Thơ', 'upload/image/object/images.jpg', '222', 1, NULL, '2019-04-16 22:43:16', '2019-04-17 18:33:22'),
 (3, 'Công viên Nam sông Hậu', 'upload/image/object/13178783_1310696925667860_5914227228769034257_n.jpg', '3', 1, NULL, '2019-04-17 18:09:54', '2019-04-17 18:34:06'),
 (4, 'Công viên Lưu Hữu Phước', 'upload/image/object/tam-su-dau-kho.jpg', '1', 1, NULL, '2019-04-17 18:13:40', '2019-04-17 18:34:37'),
 (5, 'Đô rê mon', 'upload/image/object/13133108_1310696955667857_8638613321834009882_n.jpg', NULL, 2, NULL, '2019-04-21 18:44:53', '2019-04-21 18:44:53'),
-(6, 'Conan', 'upload/image/object/images.jpg', NULL, 2, NULL, '2019-04-21 18:45:14', '2019-04-21 18:45:14');
+(6, 'Conan', 'upload/image/object/images.jpg', NULL, 2, NULL, '2019-04-21 18:45:14', '2019-04-21 18:45:14'),
+(7, 'Cao đẳng Cần Thơ', NULL, NULL, 1, NULL, '2019-05-02 18:56:29', '2019-05-02 18:56:29'),
+(8, 'Cồn Khương', 'upload/image/object/1191_793561f2111b6fedc6e0446eb8a770aa.jpg', NULL, 1, NULL, '2019-05-02 18:57:24', '2019-05-02 18:57:24'),
+(9, 'Lamborghini', NULL, NULL, 4, NULL, '2019-05-08 00:38:30', '2019-05-08 00:38:30'),
+(10, 'Ferrari', NULL, NULL, 4, NULL, '2019-05-08 00:38:30', '2019-05-08 00:38:30'),
+(11, 'Bugatti', NULL, NULL, 4, NULL, '2019-05-08 00:38:30', '2019-05-08 00:38:30'),
+(12, 'Rolls-Royce', NULL, NULL, 4, NULL, '2019-05-08 00:38:30', '2019-05-08 00:38:30'),
+(13, 'Mercedes', 'upload/image/object/322_33.jpg', NULL, 4, NULL, '2019-05-08 02:06:19', '2019-05-08 02:06:19');
 
 -- --------------------------------------------------------
 
@@ -239,13 +250,12 @@ CREATE TABLE `voters` (
 --
 
 INSERT INTO `voters` (`id`, `member_id`, `election_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, NULL, '2019-04-19 03:17:28', '2019-04-19 03:19:04'),
-(2, 2, 1, NULL, '2019-04-19 03:17:57', '2019-04-19 03:17:57'),
-(3, 3, 1, '2019-04-21 00:55:25', '2019-04-19 03:18:03', '2019-04-21 00:55:25'),
-(4, 1, 2, NULL, '2019-04-21 18:45:36', '2019-04-21 18:45:36'),
-(5, 2, 2, NULL, '2019-04-21 18:45:47', '2019-04-21 18:45:47'),
-(6, 1, 2, '2019-04-21 18:48:48', '2019-04-21 18:45:54', '2019-04-21 18:48:48'),
-(7, 4, 2, NULL, '2019-04-21 18:52:41', '2019-04-21 18:52:41');
+(8, 1, 1, NULL, '2019-05-02 18:48:50', '2019-05-02 18:48:50'),
+(9, 2, 1, NULL, '2019-05-02 18:48:56', '2019-05-02 18:48:56'),
+(10, 3, 1, NULL, '2019-05-02 18:49:05', '2019-05-02 18:49:05'),
+(11, 4, 1, NULL, '2019-05-02 18:49:10', '2019-05-02 18:49:10'),
+(12, 1, 2, NULL, '2019-05-02 19:56:16', '2019-05-02 19:56:16'),
+(13, 2, 2, NULL, '2019-05-02 19:56:23', '2019-05-02 19:56:23');
 
 -- --------------------------------------------------------
 
@@ -268,18 +278,20 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `object_id`, `voter_id`, `election_id`, `deleted_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, '2019-04-21 03:08:18', '2019-04-21 03:01:06', '2019-04-21 03:08:18'),
-(2, 2, 2, 1, NULL, '2019-04-21 03:02:12', '2019-04-21 03:02:12'),
-(3, 1, 2, 1, NULL, '2019-04-21 03:02:49', '2019-04-21 03:02:49'),
-(4, 3, 2, 1, '2019-04-21 03:08:25', '2019-04-21 03:03:01', '2019-04-21 03:08:25'),
-(5, 2, 1, 1, NULL, '2019-04-21 03:03:59', '2019-04-21 03:03:59'),
-(6, 3, 1, 1, NULL, '2019-04-21 03:03:59', '2019-04-21 03:03:59'),
-(7, 4, 1, 1, NULL, '2019-04-21 03:03:59', '2019-04-21 03:03:59'),
-(8, 4, 2, 1, NULL, '2019-04-21 03:04:15', '2019-04-21 03:04:15'),
-(9, 5, 4, 2, NULL, '2019-04-21 18:55:23', '2019-04-21 18:55:23'),
-(10, 5, 7, 2, NULL, '2019-04-21 18:55:37', '2019-04-21 18:55:37'),
-(11, 6, 7, 2, NULL, '2019-04-21 18:55:37', '2019-04-21 18:55:37'),
-(12, 5, 5, 2, NULL, '2019-04-21 18:55:54', '2019-04-21 18:55:54');
+(25, 1, 8, 1, NULL, '2019-05-02 19:09:13', '2019-05-02 19:09:13'),
+(26, 2, 8, 1, NULL, '2019-05-02 19:09:13', '2019-05-02 19:09:13'),
+(27, 4, 8, 1, NULL, '2019-05-02 19:09:13', '2019-05-02 19:09:13'),
+(28, 7, 8, 1, NULL, '2019-05-02 19:09:13', '2019-05-02 19:09:13'),
+(29, 2, 10, 1, NULL, '2019-05-02 19:09:22', '2019-05-02 19:09:22'),
+(30, 3, 10, 1, NULL, '2019-05-02 19:09:22', '2019-05-02 19:09:22'),
+(31, 4, 10, 1, NULL, '2019-05-02 19:09:22', '2019-05-02 19:09:22'),
+(32, 1, 9, 1, NULL, '2019-05-02 19:09:31', '2019-05-02 19:09:31'),
+(33, 8, 9, 1, NULL, '2019-05-02 19:09:31', '2019-05-02 19:09:31'),
+(34, 3, 11, 1, NULL, '2019-05-02 19:09:42', '2019-05-02 19:09:42'),
+(35, 4, 11, 1, NULL, '2019-05-02 19:09:42', '2019-05-02 19:09:42'),
+(36, 5, 12, 2, NULL, '2019-05-02 20:02:30', '2019-05-02 20:02:30'),
+(37, 6, 12, 2, NULL, '2019-05-02 20:02:30', '2019-05-02 20:02:30'),
+(38, 5, 13, 2, NULL, '2019-05-02 20:02:39', '2019-05-02 20:02:39');
 
 --
 -- Indexes for dumped tables
@@ -290,7 +302,8 @@ INSERT INTO `votes` (`id`, `object_id`, `voter_id`, `election_id`, `deleted_at`,
 --
 ALTER TABLE `elections`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `elections_election_type_id_foreign` (`election_type_id`);
+  ADD KEY `elections_election_type_id_foreign` (`election_type_id`),
+  ADD KEY `member_id` (`member_id`);
 
 --
 -- Indexes for table `election_types`
@@ -362,7 +375,7 @@ ALTER TABLE `votes`
 -- AUTO_INCREMENT for table `elections`
 --
 ALTER TABLE `elections`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `election_types`
@@ -374,7 +387,7 @@ ALTER TABLE `election_types`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -386,7 +399,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `objects`
 --
 ALTER TABLE `objects`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tags`
@@ -410,13 +423,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `voters`
 --
 ALTER TABLE `voters`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Constraints for dumped tables
@@ -426,7 +439,8 @@ ALTER TABLE `votes`
 -- Constraints for table `elections`
 --
 ALTER TABLE `elections`
-  ADD CONSTRAINT `elections_election_type_id_foreign` FOREIGN KEY (`election_type_id`) REFERENCES `election_types` (`id`);
+  ADD CONSTRAINT `elections_election_type_id_foreign` FOREIGN KEY (`election_type_id`) REFERENCES `election_types` (`id`),
+  ADD CONSTRAINT `elections_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`);
 
 --
 -- Constraints for table `objects`
