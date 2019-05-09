@@ -74,7 +74,7 @@ class HomeController extends Controller{
             $obj->save();
         }
 
-        return redirect()->route('get.home.getEditBauChon',$election->id);
+        return redirect()->route('get.home.getEditBauChon',$election->id,slug($request->title));
    }
 
    public function getEditBauChon(Request $request, $id, $slug)
