@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use HPro\Election\Enities\Election;
+use HPro\Member\Enities\Member;
 
 class Voter extends Model
 {
@@ -47,6 +48,10 @@ class Voter extends Model
 
     public function election(){
         return $this->belongsTo(Election::class,'election_id');
+    }
+
+    public function member(){
+        return $this->belongsTo(Member::class,'member_id');
     }
 
 }

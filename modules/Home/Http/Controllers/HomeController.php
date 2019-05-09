@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use HPro\Category\Enities\Election_type;
 use HPro\Election\Enities\Election;
 use HPro\Object\Enities\Objects;
+use HPro\Election\Enities\Voter;
 
 class HomeController extends Controller{
     /**
@@ -74,14 +75,22 @@ class HomeController extends Controller{
             $obj->save();
         }
 
-        return redirect()->route('get.home.getEditBauChon',$election->id,slug($request->title));
+        return redirect()->route('get.home.getEditBauChon',$election->id,$election->slug);
    }
 
-   public function getEditBauChon(Request $request, $id, $slug)
+    public function getEditBauChon(Request $request, $id, $slug)
     {
         $data = Election::find($id);
         $type = Election_type::get();
-        return view('Home::election.home_edit_election',compact('type','data'));
+        $member = Member::get();
+        return view('Home::election.home_edit_election',compact('type','data','member'));
+    }
+
+    public function postEditBauChon(Request $request, $id, $slug)
+    {
+        $data = Election::find($id);
+        $data->update($request->all());
+        return redirect()->back();
     }
    
     public function postCreateDoiTuong(Request $request){
@@ -98,4 +107,34 @@ class HomeController extends Controller{
         $request->session()->flash('status', 'Thêm mới thành công!');
         return redirect()->back();
     }
+
+    public function postCreateThanhVienBC(Request $request, $election_id){
+
+        $data = $request->member_id;
+        foreach ($data as $key => $val) {
+            $voter = Voter::where('member_id',$val)->where('election_id',$election_id)->first();
+            if($voter){
+                $request->session()->flash('alert', 'Đã thêm thành viên này rồi!');
+                return redirect()->back();
+            }else{
+                $member = new Voter();
+                $member->member_id = $val;
+                $member->election_id = $election_id;
+                $member->save();
+                $request->session()->flash('status', 'Thêm mới thành công!');
+                return redirect()->back();
+            }
+            
+        }
+    }
+
+    public function deleteThanhVienBC(Request $request, $id)
+    {
+        $data = Voter::find($id);
+        $data->delete();
+        $request->session()->flash('status', 'Xóa thành công!');
+        return redirect()->back();
+    }
+
+
 }

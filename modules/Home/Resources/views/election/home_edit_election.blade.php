@@ -15,7 +15,7 @@
 
                             <div class="heading-block noborder center">
                                 <h3><a href="#">{{ $data->title }}</a></h3>
-                                <i class="icon-user"></i>: {{  }},<i class="icon-user"></i>: {{  }}
+                                <i class="icon-user"></i>:,<i class="icon-user"></i>:
                             </div>
                                 
                             @include('Home::layouts.notification')
@@ -30,7 +30,8 @@
                                             <ul class="tab-nav clearfix">
                                                 <li><a href="#tab-feeds">Thông tin cuộc bầu chọn</a></li>
                                                 <li><a href="#tab-posts">Nội dung</a></li>
-                                                <li class="hidden-phone"><a href="#tab-replies">Đối tượng bầu chọn:</a></li>
+                                                <li><a href="#tab-replies">Đối tượng bầu chọn</a></li>
+                                                <li><a href="#tab-2">Thành viên bầu chọn</a></li>
                                             </ul>
 
 
@@ -139,6 +140,38 @@
 
                                                 </div>
 
+                                                <div class="tab-content clearfix" id="tab-2">
+
+                                                    <div class="topmargin-sm clearfix container">
+                                                        <div class="form-group m-t-10" id="insert-doituong">
+                                                            <button type="submit" class="btn btn-success m-b-10 float-right" data-toggle="modal" data-target=".addMember"><i class="icon-plus"></i> Thêm thành viên</button>
+                                                        </div>
+                                                        <table class="table table-bordered table-striped">
+                                                            <thead>
+                                                                <tr>
+                                                                  <th>STT</th>
+                                                                  <th>Tên cuộc bầu chọn</th>
+                                                                  <th style="text-align: center; width: 300px">Thao tác</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach($data->voter as $key => $val)
+                                                                <tr>
+                                                                    <td>{{ $key+1 }}</td>
+                                                                    <td>{{ $val->member->name }}</td>
+                                                                    <td>
+                                                                        <center>
+                                                                            <a href="{{ route('post.home.deleteThanhVienBC',$val->id) }}" class="btn btn-danger">Xóa</a>
+                                                                        </center>
+                                                                    </td>
+                                                                </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+
                                             </div>
 
                                         </div>
@@ -157,6 +190,42 @@
             </div>
 
         </section><!-- #content end -->
+
+<div class="modal fade addMember" tabindex="-1" role="dialog" aria-labelledby="addember" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Thêm thành viên</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('post.home.postCreateThanhVienBC',$data->id) }}" method="post">
+                        {{ csrf_field() }}
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                  <th width="20px"></th>
+                                  <th>Tên thành viên</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($member as $key => $val)
+                                <tr>
+                                    <td><input type="checkbox" name="member_id[]" value="{{ $val->id }}"></td>
+                                    <td>{{ $val->name }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn btn-success">Thêm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @endsection
 

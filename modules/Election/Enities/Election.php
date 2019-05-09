@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use HPro\Member\Enities\Member;
 use HPro\Object\Enities\Objects;
+use HPro\Election\Enities\Voter;
 
 class Election extends Model
 {
@@ -54,6 +55,11 @@ class Election extends Model
     public function objects()
     {
         return $this->hasMany(Objects::class,'election_id');
+    }
+
+    public function voter()
+    {
+        return $this->hasMany(Voter::class,'election_id');
     }
 }
 
