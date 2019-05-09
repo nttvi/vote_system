@@ -85,7 +85,7 @@
 
 	<!-- Document Wrapper
 	============================================= -->
-	<div id="wrapper" class="clearfix">
+	<div id="wrapper" class="clearfix" style="max-height: 431px">
 		
 
 
@@ -107,7 +107,6 @@
 		<!-- Footer
 		============================================= -->
 		
-		@include('Home::layouts.footer')
 
 		<!-- #footer end -->
 

@@ -1,8 +1,7 @@
 <?php
-    	Route::prefix('web')->group(function(){
-			Route::prefix('base')->group(function(){
-        		Route::get('index','BaseController@index');
-        	});
+    	Route::prefix('profile')->group(function(){
+        		Route::get('/edit','WebController@getEditHome')->name('get.edit.profile.home');
+        		Route::post('/edit','WebController@postEditHome')->name('post.edit.profile.home');
     	});
 
 

@@ -5,7 +5,8 @@ namespace HPro\Election\Enities;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use HPro\User\Enities\User;
+use HPro\Member\Enities\Member;
+use HPro\Object\Enities\Objects;
 
 class Election extends Model
 {
@@ -45,5 +46,14 @@ class Election extends Model
         return $this->title;
     }
 
+    public function member()
+    {
+        return $this->belongsTo(Member::class,'member_id');
+    }
+
+    public function objects()
+    {
+        return $this->hasMany(Objects::class,'election_id');
+    }
 }
 

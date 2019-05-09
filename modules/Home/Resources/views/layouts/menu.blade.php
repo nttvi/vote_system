@@ -5,7 +5,7 @@
 	<li><a href="{{ route('get.home.getCreateBauChon') }}">Tạo cuộc bầu chọn</a></li>
 	<li><a href="#"><i class="fas fa-user-cog"></i>{{ Auth::guard('member')->user()->name }}</a>
 		<ul>
-			<li><a href="#"><i class="fas fa-user-circle"></i>Tài khoản</a></li>
+			<li><a href="{{ route('get.edit.profile.home') }}"><i class="fas fa-user-circle"></i>Tài khoản</a></li>
 			<li><a href="#"><i class="fas fa-tasks"></i>Các cuộc bầu chọn đã tạo</a></li>
 			<li><a href="#"><i class="fas fa-tasks"></i>Các cuộc bầu chọn đã tham gia</a></li>
 			<li><a href="{{ route('get.home.logout') }}"><i class="fa fa-sign-out-alt"></i>Đăng xuất</a></li>
