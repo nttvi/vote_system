@@ -54,7 +54,7 @@
 		}
 
     	#header.transparent-header:not(.sticky-header) #header-wrap {
-    		background: #1035b9a3;
+    		background: #1035b9;
 		}	
 
 		#footer.dark {
@@ -129,6 +129,8 @@
 	<!-- Footer Scripts
 	============================================= -->
 	<script src="{{ asset('/frontend/js/functions.js') }}"></script>
+	<script src="{{ asset('/frontend/js/chart.js') }}"></script>
+	<script src="{{ asset('/frontend/js/chart-utils.js') }}"></script>
 	
 	@stack('js')
 	

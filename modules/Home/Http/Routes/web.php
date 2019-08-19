@@ -18,6 +18,18 @@
             Route::post('/tao-doi-tuong','HomeController@postCreateDoiTuong')->name('post.home.postCreateDoiTuong');
             Route::post('/them-thanh-vien-bau-chon/{election_id}','HomeController@postCreateThanhVienBC')->name('post.home.postCreateThanhVienBC');
             Route::get('xoa-thanh-vien-bau-chon/{id}','HomeController@deleteThanhVienBC')->name('post.home.deleteThanhVienBC');
+
     	});
+
+        Route::prefix('tham-gia-bau-chon')->group(function(){
+            Route::get('list','HomeController@getHomeElectionList')->name('get.home.getHomeElectionList');
+            Route::get('list/{cate-id}','HomeController@getHomeElectionListByCate')->name('get.home.getHomeElectionListByCate');
+            Route::get('detail/{id}','HomeController@getHomeElectionDetail')->name('get.home.getHomeElectionDetail');
+            Route::post('detail/{id}','HomeController@postVoteCheck')->name('get.home.postVoteCheck');
+            Route::get('content/{id}','HomeController@getHomeElectionDetailContent')->name('get.home.getHomeElectionDetailContent');
+        });
+
+        Route::get('ajax-thanh-vien','HomeController@ajaxThanhVien');
+
 
 

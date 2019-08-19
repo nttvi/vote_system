@@ -159,6 +159,7 @@
                                                                 <tr>
                                                                     <td>{{ $key+1 }}</td>
                                                                     <td>{{ $val->member->name }}</td>
+                                                                    <td>{{ $val->member->email }}</td>
                                                                     <td>
                                                                         <center>
                                                                             <a href="{{ route('post.home.deleteThanhVienBC',$val->id) }}" class="btn btn-danger">Xóa</a>
@@ -200,6 +201,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
+                    <input type="text" class="form-control m-b-10" id="search-tv" name="key" placeholder="Tìm kiếm thành viên">
                     <form action="{{ route('post.home.postCreateThanhVienBC',$data->id) }}" method="post">
                         {{ csrf_field() }}
                         <table class="table table-bordered table-striped">
@@ -207,13 +209,15 @@
                                 <tr>
                                   <th width="20px"></th>
                                   <th>Tên thành viên</th>
+                                  <th>Email</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbl-tv">
                                 @foreach($member as $key => $val)
                                 <tr>
                                     <td><input type="checkbox" name="member_id[]" value="{{ $val->id }}"></td>
                                     <td>{{ $val->name }}</td>
+                                    <td>{{ $val->email }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -233,5 +237,21 @@
     <script src="{{ asset('backend/plugins/ckeditor/ckeditor.js') }} "></script>
     <script>
         CKEDITOR.replace( 'editor1' );
+
+        $(document).ready(function() {
+            $('#search-tv').keyup(function(){
+                var searchTV = $('#search-tv').val();
+                var url = "{{ url('ajax-thanh-vien') }}?key=" + searchTV;
+                $.ajax({
+                url : url,
+                success : function(data){
+                    $("#tbl-tv").html(data);
+                }
+            });
+            });
+        });
+
     </script>
+
+
 @endpush

@@ -6,6 +6,8 @@ function memberName($id)
 	return $data->name;
 }
 
+
+
 function countVote($obejct_id,$election_id)
 {
 	$data = HPro\Election\Enities\Vote::where('object_id',$obejct_id)->where('election_id',$election_id)->get();

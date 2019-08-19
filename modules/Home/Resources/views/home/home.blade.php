@@ -8,7 +8,7 @@
 		}
 
 		.dark .slider-caption h2 {
-		        color: #82d5ff;
+		        color: white;
     			text-shadow: 1px 15px 15px rgb(0, 0, 0);
 		}
 		.slider-caption p{
@@ -33,12 +33,12 @@
 
 		<section id="slider" class="slider-element force-full-screen full-screen">
 
-			<div class="force-full-screen full-screen dark" style="background-image: url('{{ asset('image/slider_home.jpg')}}');background-position: 100%; background-repeat: no-repeat; background-size: cover;">
+			<div class="force-full-screen full-screen dark" style="background-image: url('{{ asset('image/ken-1.jpg')}}');background-position: 100%; background-repeat: no-repeat; background-size: cover;">
 
 				<div class="container clearfix">
 					<div class="slider-caption slider-caption-center">
 						<h2 data-animate="fadeInDown">Chào mừng bạn đến VoteNow!!!</h2>
-						<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="400">Tạo những cuộc bầu chọn và cùng tham gia bỏ phiếu bầu chọn</p>
+						<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="400" style="color: white;">Tạo những cuộc bầu chọn và cùng tham gia bỏ phiếu bầu chọn</p>
 						<a data-animate="fadeInUp" data-delay="600" href="#" class="button button-border button-light button-rounded button-large noleftmargin nobottommargin d-none d-md-inline-block" style="margin-top: 30px;">Tạo cuộc bầu chọn</a>
 					</div>
 				</div>

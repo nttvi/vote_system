@@ -5,6 +5,7 @@ namespace HPro\Category\Enities;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use HPro\Election\Enities\Election;
 
 class Election_type extends Model
 {
@@ -42,6 +43,10 @@ class Election_type extends Model
     public function getTitle()
     {
         return $this->title;
+    }
+
+    public function elections(){
+        return $this->hasMany(Election::class,'election_type_id');
     }
 
 }
