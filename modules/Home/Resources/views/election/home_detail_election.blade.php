@@ -82,6 +82,10 @@
 		.object-name{
 			font-size: 20px;
 		}
+
+		h1, .breadcrumb-item a{
+			color: white;
+		}
 	</style>
 
 @endpush
@@ -89,7 +93,15 @@
 
 @section('content')
 	<section class="page-title p-t-50 p-b-30" style="height:200px; background-image: url({{ asset('image/4.jpg')  }});filter:brightness(100%);;">
-		<div class="container">
+		<div class="container clearfix">
+			<h1>Tham gia bầu chọn</h1>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="#">Home</a></li>
+				<li class="breadcrumb-item"><a href="#">Tham gia bầu chọn</a></li>
+				<li class="breadcrumb-item active" aria-current="page">
+					<a href="{{ route('get.home.getHomeElectionDetailContent',$data->id) }}">{{ $data->title }}</a>
+				</li>
+			</ol>
 		</div>
 	</section>
 	<section class="election-detail m-t-20">
@@ -117,7 +129,7 @@
 							@foreach($data->objects as $key => $val)
 								<div class="col-md-12  m-b-20 row">
 									<div class="col-md-4">
-										<img src="{{ asset($val->image) }}" style="width: 100%" class="image-election" id="{{ $val->id }}" alt="">
+										<img src="{{ asset($val->image ?? 'image/slider_vote.jpg') }}" style="width: 100%" class="image-election" id="{{ $val->id }}" alt="">
 										<!-- <button type="submit" class="btn m-b-10" style="height: 200px; width: 100%; background-image: url({{ asset($val->image) }}); background-size: 100%; background-repeat: no-repeat;">
 										</button> -->
 									</div>

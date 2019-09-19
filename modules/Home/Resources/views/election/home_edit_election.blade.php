@@ -128,7 +128,7 @@
                                                                     <td>{{ $val->title }}</td>
                                                                     <td>
                                                                         <center>
-                                                                            <a href="#" class="btn btn-warning" style="color: white">Chỉnh sửa</a>
+                                                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target=".editObj-{{$key}}" style="color: white">Chỉnh sửa</a>
                                                                             <a href="#" class="btn btn-danger">Xóa</a>
                                                                         </center>
                                                                     </td>
@@ -151,6 +151,7 @@
                                                                 <tr>
                                                                   <th>STT</th>
                                                                   <th>Tên cuộc bầu chọn</th>
+                                                                  <th>Email</th>
                                                                   <th style="text-align: center; width: 300px">Thao tác</th>
                                                                 </tr>
                                                             </thead>
@@ -230,6 +231,23 @@
     </div>
 </div>
 
+@foreach($data->objects as $key => $val)
+<div class="modal fade editObj-{{$key}}" tabindex="-1" role="dialog" aria-labelledby="addember" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-body">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Chỉnh sửa đối tượng</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    @include('Home::election.home_object_edit')
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
 @endsection
 

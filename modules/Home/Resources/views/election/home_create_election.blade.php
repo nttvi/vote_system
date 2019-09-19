@@ -68,23 +68,23 @@
 											</div>
 											<div class="form-group col-sm-6">
 												<label for="inputEmail2">Số người tham gia:</label>
-												<input type="number" name="voter_quality" class="form-control" id="inputEmail2">
+												<input type="number" min=0 name="voter_quality" class="form-control" id="inputEmail2">
 											</div>
 											<div class="form-group col-sm-6">
 												<label for="inputEmail3">Ngày bắt đầu:</label>
-												<input type="date" name="start_date" class="form-control" id="inputEmail3">
+												<input type="date" name="start_date" class="form-control" id="inputEmail3" value="{{ date('Y-m-d') }}" >
 											</div>
 											<div class="form-group col-sm-6">
 												<label for="inputEmail4">Thời gian bắt đầu:</label>
-												<input type="time" name="start_time" class="form-control" id="inputEmail4">
+												<input type="time" name="start_time" class="form-control" id="inputEmail4" value="{{ date('h:i') }}">
 											</div>
 											<div class="form-group col-sm-6">
 												<label for="inputEmail5">Ngày kết thúc:</label>
-												<input type="date" name="end_date" class="form-control" id="inputEmail5">
+												<input type="date" name="end_date" class="form-control" id="inputEmail5" value="{{ date('Y-m-d') }}">
 											</div>
 											<div class="form-group col-sm-6">
 												<label for="inputEmail6">Thời gian kết thúc:</label>
-												<input type="time" name="end_time" class="form-control" id="inputEmail6">
+												<input type="time" name="end_time" class="form-control" id="inputEmail6" value="{{ date('h:i') }}">
 											</div>
 										</div>
 									</div>
@@ -146,8 +146,13 @@
 	        var i = 2;
 	        $("#add-doituong").click(function(){
 	        	if(i<=5){
-	            	$("#insert-doituong").append('<div class="row m-b-10"><label for="inputEmail3" class="col-sm-3">Đối tượng '+ i++ + ':</label><div class="col-sm-9"><input type="text" class="form-control" id="inputEmail3" name="object[]"></div></div>');
+	            	$("#insert-doituong").append('<div class="row m-b-10" id="append'+i+'"><label for="inputEmail3" class="col-sm-3">Đối tượng '+ i + ':</label><div class="col-sm-8"><input type="text" class="form-control" id="inputEmail3" name="object[]"></div><div class="col-sm-1"><button type="button" class="btn btn-danger disappend"  id="'+ i++ +'" >Xóa</button></div></div>');
 	        	}
+	        });
+	        $('body').on('click','.disappend',function(){
+	        	var val = $(this).attr('id');
+	        	$('#append'+val).remove();
+	        	i = i-1;
 	        });
 	    });
 	</script>

@@ -83,7 +83,7 @@
 															<td>{{ $val->title }}</td>
 															<td>
 																<center>
-																	<a href="#" class="btn btn-success" style="color: white">Xem</a>
+																	<a href="{{ route('get.home.getHomeElectionDetailContent',$val->id) }}" class="btn btn-success" style="color: white">Xem</a>
 																	<a href="{{ route('get.home.getEditBauChon',[$val->id,$val->slug]) }}" class="btn btn-warning" style="color: white">Chỉnh sửa</a>
 																	<a href="#" class="btn btn-danger">Xóa</a>
 																</center>
@@ -117,7 +117,7 @@
 															<td>{{ $val->election->member->name }}</td>
 															<td>
 																<center>
-																	<a href="#" class="btn btn-success" style="color: white">Xem</a>
+																	<a href="{{ route('get.home.getHomeElectionDetailContent',$val->election->id) }}" class="btn btn-success" style="color: white">Xem</a>
 																</center>
 															</td>
 														</tr>

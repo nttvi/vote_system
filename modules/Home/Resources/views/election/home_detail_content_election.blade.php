@@ -19,7 +19,7 @@
 
 @section('content')
 
-<section id="page-title">
+		<section id="page-title">
 
 			<div class="container clearfix">
 				<h1>Tham gia bầu chọn</h1>
@@ -106,7 +106,7 @@
 											@foreach($data->objects as $key => $val)
 											<tr>
 												<td width="200px">{{ $val->title }}</td>
-												<td width="200px"> <img src="{{ asset($val->image) }}" width="100%" alt=""></td>
+												<td width="200px"> <img src="{{ asset($val->image ?? 'image/slider_vote.jpg') }}" width="100%" alt=""></td>
 												<td>{{ $val->description }}</td>
 											</tr>
 											@endforeach

@@ -28,21 +28,19 @@ class HomeController extends Controller{
     }
 
     public function getHomeLogin(Request $request){
-        if(Auth::check()){
-            return redirect()->back();
-        }else
+        
             return view('Home::home.login');
     }
 
     public function postHomeLogin(Request $request){
-
+        // dd($request->all());
         $login = [
                         'email' => $request->input('account'),
                         'password' => $request->input('password'),
                     ];
         
         if (Auth::guard('member')->attempt($login)) {
-            return redirect()->back();
+            return redirect()->route('get.home.index');
         }else{
             return redirect()->back();
         }
@@ -62,6 +60,7 @@ class HomeController extends Controller{
    public function postCreateBauChon(Request $request)
    {
         $data = $request->all();
+        // dd($data);
         unset($data['object']);
         $data['slug'] = slug($request->title); 
         $data['member_id'] = Auth::guard('member')->id(); 
@@ -76,7 +75,7 @@ class HomeController extends Controller{
             $obj->save();
         }
 
-        return redirect()->route('get.home.getEditBauChon',$election->id,$election->slug);
+        return redirect()->route('get.home.getEditBauChon',[$election->id,$election->slug]);
    }
 
     public function getEditBauChon(Request $request, $id, $slug)
@@ -109,6 +108,22 @@ class HomeController extends Controller{
         return redirect()->back();
     }
 
+    public function postEditDoiTuong(Request $request,$id){
+        // dd($request->all());
+        $data = Objects::find($id);
+        
+        if($request->file('image')==null){
+            $data->update($request->all());
+        }else{
+            $data->update($request->all());
+            $image = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move('upload/image/object',$image);
+            $data->image = 'upload/image/object/'.$image;
+            $data->update();
+        }
+        $request->session()->flash('status', 'Chỉnh sửa thành công!');
+        return redirect()->back();
+    }
     public function postCreateThanhVienBC(Request $request, $election_id){
 
         $data = $request->member_id;

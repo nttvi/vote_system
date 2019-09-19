@@ -16,6 +16,7 @@
             Route::get('/chinh-sua-bau-chon/{id}-{slug}','HomeController@getEditBauChon')->name('get.home.getEditBauChon');
             Route::post('/chinh-sua-bau-chon/{id}-{slug}','HomeController@postEditBauChon')->name('post.home.getEditBauChon');
             Route::post('/tao-doi-tuong','HomeController@postCreateDoiTuong')->name('post.home.postCreateDoiTuong');
+            Route::post('/chinh-sua-doi-tuong/{id}','HomeController@postEditDoiTuong')->name('post.home.postEditDoiTuong');
             Route::post('/them-thanh-vien-bau-chon/{election_id}','HomeController@postCreateThanhVienBC')->name('post.home.postCreateThanhVienBC');
             Route::get('xoa-thanh-vien-bau-chon/{id}','HomeController@deleteThanhVienBC')->name('post.home.deleteThanhVienBC');
 
