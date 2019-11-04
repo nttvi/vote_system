@@ -40,6 +40,7 @@
                     <form class="form-horizontal form-material" action="{{ route('post.home.login') }}" method="post">
                     	{{ csrf_field() }}
                         <h3 class="box-title m-b-20">Đăng nhập</h3>
+                        @include('Home::layouts.notification')
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <input class="form-control" type="email" name="account" required="" placeholder="Họ tên">

@@ -1,3 +1,17 @@
+<?php 
+	
+	if(Auth::guard('member')->check()){
+        $member =\App\Member::find(Auth::guard('member')->id());
+        // dd($member);
+        if($member->status != 1){
+        	Auth::guard('member')->logout();
+        	return redirect()->route('get.home.index');
+        }
+
+	}
+
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 <head>

@@ -35,6 +35,17 @@ class MemberController extends Controller{
         return view('Member::member.list',compact('data'));
     }
 
+    public function getListOnMonth(Request $request){
+        $members = Member::all();
+        $data=[];
+        foreach ($members as $key => $value) {
+            $date_current = getdate();
+            if((int)date_format($value->created_at,'m') === $date_current['mon']){
+                $data[$key] = $value;
+            }
+        }
+        return view('Member::member.list_on_month',compact('data'));
+    }
 
     public function getCreate(Request $request){
         return view('Member::member.create');
@@ -60,7 +71,6 @@ class MemberController extends Controller{
         $this->validate($request,$this->model->rules,$this->model->messages);
         $data = Member::find($id);
         $data->update($request->all());
-        $data->password = bcrypt($request->password);
         $data->update();
         $request->session()->flash('status', 'Chỉnh sửa thành công!');
         return redirect()->back();

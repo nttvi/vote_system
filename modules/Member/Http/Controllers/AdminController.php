@@ -22,5 +22,18 @@ class AdminController extends Controller{
         $data = Member::where('name','like','%'.$request->key.'%')->get();
         return view('Member::member.list',compact('data'));
     }
+
+    public function searchMemberOnMonthAdmin(Request $request)
+    {
+        $members = Member::where('name','like','%'.$request->key.'%')->get();
+        $data = [];
+        foreach ($members as $key => $value) {
+            $date_current = getdate();
+            if((int)date_format($value->created_at,'m') === $date_current['mon']){
+                $data[$key] = $value;
+            }
+        }
+        return view('Member::member.list_on_month',compact('data'));
+    }
    
 }

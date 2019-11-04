@@ -58,6 +58,15 @@
                                     <input type="password" name="password" class="form-control" value="{{ old('password') }}">
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Trạng thái</label>
+                                    <select name="status" class="form-control">
+                                        <option value="1">Enable</option>
+                                        <option value="0">Disable</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <!--/row-->
                     </div>

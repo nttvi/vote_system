@@ -54,7 +54,11 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="hidden" name="password" class="form-control" value="{{ $data->password }}">
+                                    <label class="control-label">Trạng thái</label>
+                                    <select name="status" class="form-control">
+                                        <option @if($data->status == 1) selected="" @endif value="1">Enable</option>
+                                        <option @if($data->status == 0) selected="" @endif value="0">Disable</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

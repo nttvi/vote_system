@@ -40,9 +40,17 @@ class HomeController extends Controller{
                     ];
         
         if (Auth::guard('member')->attempt($login)) {
-            return redirect()->route('get.home.index');
+            $member = Member::find(Auth::guard('member')->id());
+            // dd($member);
+            if($member->status != 1){
+                $request->session()->flash('alert', 'Tài khoản của bạn đang tạm khóa! Hãy liên hệ với chúng tôi!');
+                return redirect()->route('get.home.login');
+            }else{
+                return redirect()->route('get.home.index');
+            }
         }else{
-            return redirect()->back();
+                $request->session()->flash('alert', 'Sai tên đăng nhập hoặc mật khẩu');
+            return redirect()->route('get.home.login');
         }
     }
 
