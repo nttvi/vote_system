@@ -12,11 +12,19 @@
             <div class="col-md-4">
                 <h4 class="m-b-0 text-white">Danh sách thành viên</h4>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <form action="{{ route('get.search.member.admin') }}" method="get">
                     <div class="row">
-                        <div class="col-md-8">
-                            <input type="search" name="key" class="form-control">
+                        <div class="col-md-4">
+                            <input type="search" name="key" class="form-control" value="{{ Request::get('key') }}">
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-control" name="month" >
+                                <option value="">-- Chọn tháng --</option>
+                                @for($i=1; $i<=12; $i++)
+                                <option @if(Request::get('month') == $i) selected @endif value="{{ $i }}">Tháng {{ $i }}</option>
+                                @endfor
+                            </select>
                         </div>
                         <div class="col-md-4">
                             <button type="submit" class="btn btn-success">Tìm kiếm</button>
@@ -35,6 +43,7 @@
                             <th>Thành viên</th>
                             <th>Email</th>
                             <th>Số điện thoại</th>
+                            <th>Ngày tạo</th>
                             <th>Thao tác</th>
                         </tr>
                     </thead>
@@ -44,6 +53,7 @@
                             <th>Thành viên</th>
                             <th>Email</th>
                             <th>Số điện thoại</th>
+                            <th>Ngày tạo</th>
                             <th width="110px">Thao tác</th>
                         </tr>
                     </tfoot>
@@ -54,6 +64,7 @@
                             <td>{{ $val->name }}</td>
                             <td>{{ $val->email }}</td>
                             <td>{{ $val->phone }}</td>
+                            <td>{{ $val->created_at }}</td>
                             <td>
                                 <center>
                                     <a href="{{ route('get.edit.member',$val->id) }}" data-toggle="tooltip" data-original-title="Sửa"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>

@@ -21,14 +21,14 @@ return [
                         'route' => route('get.create.member')   ,
                         'active'=> 'create-member ',
                         'middleware' => [],
-                ],
+                ]/*,
                 'list-on-month-member' => [
                         'name'  => trans('Danh sách thành viên trong tháng'),
                         'icon'  => null,
                         'route' => route('get.list_on_month.member')   ,
                         'active'=> 'list-on-month-member',
                         'middleware' => [],
-                ],
+                ],*/
 
         // \TTSoft\Categories\Entities\Category::DOC_STATUS => [
         //     'name'  => trans('Tình trạng chứng từ'),

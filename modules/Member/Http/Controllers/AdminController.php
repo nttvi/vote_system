@@ -19,8 +19,19 @@ class AdminController extends Controller{
     
     public function searchMemberAdmin(Request $request)
     {
+        $filter = $request->all();
         $data = Member::where('name','like','%'.$request->key.'%')->get();
-        return view('Member::member.list',compact('data'));
+        if(!empty($filter['month'])){
+            $data2 = $data;
+            $data = [];
+            foreach ($data2 as $key => $value) {
+                if((int)date_format($value->created_at,'m') == (int)$filter['month']){
+                    $data[$key] = $value;
+                }
+            }
+            return view('Member::member.list',compact('data'));
+        }
+        return view('Member::member.list',compact('data','filter'));
     }
 
     public function searchMemberOnMonthAdmin(Request $request)
