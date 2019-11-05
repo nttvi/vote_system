@@ -4,13 +4,17 @@
         <div class="col-md-12">
             <img src="{{ asset($val->image) }}" alt="" width="100%">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label class="m-t-10">Tên đối tượng:</label>
             <input type="text" class="form-control" required name="title" value="{{ $val->title }}">
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <label  class="m-t-10">Hình ảnh:</label>
             <input type="file" class="form-control" name="image">
+        </div>
+        <div class="col-md-12">
+            <label class="m-t-10">Mô tả:</label>
+            <textarea name="description" class="form-control">{{ $val->description }}</textarea>            
         </div>
         <div class="col-md-4">
                 <input type="hidden" name="election_id" value="{{ $data->id }}">
