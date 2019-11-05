@@ -111,6 +111,7 @@
 													  </thead>
 													  <tbody>
 													  	@foreach($data->voter as $key => $val)
+													  	@if($val->election && $val->election->member)
 														<tr>
 															<td>{{ $key+1 }}</td>
 															<td>{{ $val->election->title }}</td>
@@ -121,6 +122,7 @@
 																</center>
 															</td>
 														</tr>
+														@endif
 														@endforeach
 													  </tbody>
 													</table>
